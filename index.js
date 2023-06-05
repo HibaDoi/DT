@@ -32,7 +32,7 @@
     const formattedDate = now.toISOString();
     let body = req.body;
     const data =new dht11Model({humidity: body.humidity, temperature :body.temperature, timestamp :formattedDate});
-    console.log(body.humidity, body.temperature, body.timestamp)
+    
     await data.save()
     
     res.status(200).json({
@@ -48,17 +48,9 @@
       message:"data has been received"
     })
   });
-  app.post('/test', (req, res) => {
-    const { data } = req.body;
-    console.log(`data: ${data}`);
-    res.send('success');
-  });
-  app.post('/tt', (req, res) => {
-    
-    console.log('data');
-    
-  });
-  app.listen(PORT, () => {
-    console.log("Listening on port", PORT)
+
+
+  app.listen(PORT || 8000, () => {
+    console.log("Listening on port", PORT || 8000)
     connect()
   });
