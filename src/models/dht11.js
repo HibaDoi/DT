@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const dht11Schema=new mongoose.Schema({
     temperature : Number,
     humidity : Number,
-    time:Number,
+    timestamp: String,
+
 })
 
 const dht11Model=mongoose.model(

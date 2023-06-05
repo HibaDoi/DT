@@ -5,6 +5,7 @@
   const fs = require("fs");
   const connect=require("./src/config/dbConfig")
   const dht11Model=require("./src/models/dht11")
+  const fireModel=require("./src/models/fire")
   //constants
   const DB_PATH = path.resolve("db.json");
   const PORT = process.env.PORT || 8000;
@@ -27,10 +28,22 @@
     
   });
   app.post("/", async (req, res) => {
-   
+    const now = new Date();
+    const formattedDate = now.toISOString();
     let body = req.body;
-    const data =new dht11Model(body)
+    const data =new dht11Model({humidity: body.humidity, temperature :body.temperature, timestamp :formattedDate});
+    console.log(body.humidity, body.temperature, body.timestamp)
     data.save()
+    
+    res.status(200).json({
+      message:"data has been received"
+    })
+  });
+  app.post("/fire", async (req, res) => {
+    console.log(body);
+    let body = req.body;
+    const data2 =new fireModel(body)
+    data2.save()
     
     res.status(200).json({
       message:"data has been received"
