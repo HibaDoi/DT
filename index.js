@@ -33,7 +33,7 @@
     let body = req.body;
     const data =new dht11Model({humidity: body.humidity, temperature :body.temperature, timestamp :formattedDate});
     console.log(body.humidity, body.temperature, body.timestamp)
-    data.save()
+    await data.save()
     
     res.status(200).json({
       message:"data has been received"
@@ -42,7 +42,7 @@
   app.post("/fire", async (req, res) => {
     let body = req.body;
     const data2 =new fireModel(body)
-    data2.save()
+    await data2.save()
     
     res.status(200).json({
       message:"data has been received"
