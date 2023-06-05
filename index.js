@@ -5,7 +5,9 @@
   const fs = require("fs");
   const connect=require("./src/config/dbConfig")
   const dht11Model=require("./src/models/dht11")
-  const fireModel=require("./src/models/fire")
+  const fireModel=require("./src/models/fire-motion")
+  const lightModel=require("./src/models/luminosité")
+  const soilModel=require("./src/models/Soil-moi")
   //constants
   const DB_PATH = path.resolve("db.json");
   const PORT = process.env.PORT || 8000;
@@ -39,7 +41,7 @@
       message:"data has been received"
     })
   });
-  app.post("/fire", async (req, res) => {
+  app.post("/firemotion", async (req, res) => {
     let body = req.body;
     const data2 =new fireModel(body)
     await data2.save()
@@ -48,6 +50,41 @@
       message:"data has been received"
     })
   });
+
+  app.post("/light", async (req, res) => {
+    let body = req.body;
+    const data3 =new fireModel(body)
+    await data3.save()
+    
+    res.status(200).json({
+      message:"data has been received"
+    })
+  });
+
+  app.post("/soil", async (req, res) => {
+    let body = req.body;
+    const data3 =new fireModel(body)
+    await data3.save()
+    
+    res.status(200).json({
+      message:"data has been received"
+    })
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   app.listen(PORT || 8000, () => {
