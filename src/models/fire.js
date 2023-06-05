@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const fireSchema=new mongoose.Schema({
-    fire: Boolean,    
+    fire: Number,    
 })
 const fireModel=mongoose.model(
     "fire",fireSchema
