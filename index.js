@@ -40,7 +40,6 @@
     })
   });
   app.post("/fire", async (req, res) => {
-    console.log(body);
     let body = req.body;
     const data2 =new fireModel(body)
     data2.save()
