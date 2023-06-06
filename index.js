@@ -63,7 +63,7 @@
 
   app.post("/soil", async (req, res) => {
     let body = req.body;
-    const data3 =new fireModel(body)
+    const data3 =new soilModel(body)
     await data3.save()
     
     res.status(200).json({
