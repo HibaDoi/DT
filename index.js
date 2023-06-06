@@ -43,7 +43,7 @@
   });
   app.post("/firemotion", async (req, res) => {
     let body = req.body;
-    const data2 =new fireModel(body)
+    const data2 =new fireModel({fire :body.fire, timestamp :formattedDate})
     await data2.save()
     
     res.status(200).json({
@@ -53,7 +53,7 @@
 
   app.post("/light", async (req, res) => {
     let body = req.body;
-    const data3 =new fireModel(body)
+    const data3 =new lightModel({light :body.light, timestamp :formattedDate})
     await data3.save()
     
     res.status(200).json({
@@ -63,7 +63,7 @@
 
   app.post("/soil", async (req, res) => {
     let body = req.body;
-    const data3 =new soilModel(body)
+    const data3 =new soilModel({Soil :body.Soil, timestamp :formattedDate})
     await data3.save()
     
     res.status(200).json({
