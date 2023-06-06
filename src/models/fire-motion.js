@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const fireSchema=new mongoose.Schema({
-    fire: Number,    
+    fire: Number,
+    motion:Number,
+    timestamp: String,    
 })
 const fireModel=mongoose.model(
     "fire",fireSchema
