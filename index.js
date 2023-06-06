@@ -52,6 +52,8 @@
   });
 
   app.post("/light", async (req, res) => {
+    const now = new Date();
+    const formattedDate = now.toISOString();
     let body = req.body;
     const data3 =new lightModel({light :body.light, timestamp :formattedDate})
     await data3.save()
@@ -62,6 +64,8 @@
   });
 
   app.post("/soil", async (req, res) => {
+    const now = new Date();
+    const formattedDate = now.toISOString();
     let body = req.body;
     const data3 =new soilModel({Soil :body.Soil, timestamp :formattedDate})
     await data3.save()
