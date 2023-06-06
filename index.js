@@ -67,7 +67,8 @@
     const now = new Date();
     const formattedDate = now.toISOString();
     let body = req.body;
-    const data3 =new soilModel({Soil :body.Soil, timestamp :formattedDate})
+    //const data3 =new soilModel({Soil :body.Soil, timestamp :formattedDate})
+    const data3 =new soilModel(body)
     await data3.save()
     
     res.status(200).json({
