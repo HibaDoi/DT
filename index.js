@@ -42,6 +42,8 @@
     })
   });
   app.post("/firemotion", async (req, res) => {
+    const now = new Date();
+    const formattedDate = now.toISOString();
     let body = req.body;
     const data2 =new fireModel({fire :body.fire, timestamp :formattedDate})
     await data2.save()
@@ -67,8 +69,8 @@
     const now = new Date();
     const formattedDate = now.toISOString();
     let body = req.body;
-    const data3 =new soilModel({Soil :body.Soil, timestamp :formattedDate})
-    await data3.save()
+    const data4 =new soilModel({Soil :body.Soil, timestamp :formattedDate})
+    await data4.save()
     
     res.status(200).json({
       message:"data has been received"
